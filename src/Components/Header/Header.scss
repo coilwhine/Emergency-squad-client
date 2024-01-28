@@ -1,0 +1,26 @@
+.Header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--padding-l);
+    background-color: var(--color-1);
+    color: var(--light-text-color);
+    box-shadow: var(--shadow-m);
+
+    .img {
+        width: 40px;
+        height: 40px;
+        background-color: aqua;
+        border-radius: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .heading {
+        font-size: 2em;
+        font-family: var(--decorative-font);
+    }
+}

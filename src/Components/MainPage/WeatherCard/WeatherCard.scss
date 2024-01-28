@@ -1,0 +1,53 @@
+.WeatherCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+    }
+
+    .wheather-icon {
+        position: absolute;
+        top: -17px;
+        left: -17px;
+        font-size: 3em;
+        color: var(--color-1);
+    }
+
+    .location {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--padding-m);
+
+        span {
+            font-weight: bold;
+        }
+
+        i {
+            color: var(--color-1);
+            font-size: 1em;
+        }
+    }
+
+    .temperature-wraper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--padding-l);
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .wind {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

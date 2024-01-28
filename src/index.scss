@@ -1,0 +1,51 @@
+:root {
+    --color-1: #555B50;
+    --color-2: #e8e28f;
+    --color-2-transparent: #bdb76bb3;
+    --color-3: #6B8E23;
+    --color-4: #90a380;
+    --color-4-transparent: #90a380d6;
+    --light-text-color: #f3f6f1;
+    --dark-text-color: #202120;
+
+    --radius-s: 5px;
+    --radius-m: 10px;
+    --radius-l: 15px;
+
+    --padding-s: 5px;
+    --padding-m: 10px;
+    --padding-l: 15px;
+    --padding-xl: 25px;
+
+    --shadow-s: 0px 1px 2px 0px #22242090;
+    --shadow-m: 0px 2px 4px 0px #22242090;
+    --shadow-m-top: 2px 0px 4px 0px #22242090;
+    --shadow-l: 0px 3px 5px 1px #22242090;
+
+    --main-font: 'Rubik', sans-serif;
+    --decorative-font: 'Rubik Maps', system-ui;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: var(--main-font);
+}
+
+body {
+    min-height: 100vh;
+    color: var(--dark-text-color);
+    background-color: var(--light-text-color);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+button,
+label,
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
