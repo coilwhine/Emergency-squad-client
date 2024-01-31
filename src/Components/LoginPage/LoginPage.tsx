@@ -4,7 +4,9 @@ import "./LoginPage.scss";
 function LoginPage(): JSX.Element {
 
     return (
-        <div className="LoginPage"></div>
+        <div className="LoginPage">
+
+        </div>
     );
 }
 
