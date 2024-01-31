@@ -1,4 +1,4 @@
-type wheatherData = {
+type weatherData = {
     time: Date,
     interval: number,
     temperature_2m: number,

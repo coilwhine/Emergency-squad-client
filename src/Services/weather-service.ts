@@ -1,4 +1,4 @@
-class WheatherServices {
+class WeatherServices {
 
     async localWeather() {
 
@@ -18,5 +18,5 @@ class WheatherServices {
     }
 }
 
-const wheatherServices = new WheatherServices();
-export default wheatherServices;
+const weatherServices = new WeatherServices();
+export default weatherServices;
