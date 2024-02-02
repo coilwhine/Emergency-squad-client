@@ -9,6 +9,27 @@ import { TiArrowUp } from "react-icons/ti";
 
 function WeatherCard(): JSX.Element {
     const [weatherData, setWeatherData] = useState<weatherData>(null);
+    const [location, setLocation] = useState(null);
+
+    function getLocation() {
+
+        try {
+            const locationRequest = navigator.geolocation;
+
+            if (locationRequest) {
+                navigator.geolocation.getCurrentPosition((res) => {
+                    setLocation({
+                        latitude: res.coords.latitude,
+                        longitude: res.coords.longitude
+                    })
+                });
+            } else {
+                console.log("User didn't consent to provide geolocation.");
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     function weatherIconSelector(status: number) {
         if (status = 0) {
@@ -23,12 +44,20 @@ function WeatherCard(): JSX.Element {
     }
 
     useEffect(() => {
+        getLocation();
+    }, [])
+
+    useEffect(() => {
+
         const fetchWheatherData = async () => {
-            const data = await weatherServices.localWeather()
+            const data = await weatherServices.localWeather(location)
             setWeatherData(data.current);
         }
-        fetchWheatherData();
-    }, [])
+        if (location) {
+            fetchWheatherData();
+        }
+
+    }, [location])
 
     return (
         <div className="WeatherCard data-card">
