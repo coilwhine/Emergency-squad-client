@@ -1,14 +1,17 @@
 .LayOut {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     min-height: 100vh;
 
     main {
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 15px;
+        width: 100%;
+        min-height: 100vh;
     }
 }
