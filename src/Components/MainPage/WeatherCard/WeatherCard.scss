@@ -14,8 +14,8 @@
 
     .weather-icon {
         position: absolute;
-        top: -17px;
-        left: -17px;
+        top: -14px;
+        left: -14px;
         font-size: 3em;
         color: var(--color-1);
     }
@@ -34,15 +34,6 @@
             color: var(--color-1);
             font-size: 1em;
         }
-    }
-
-    .temperature-wraper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: var(--padding-l);
-        font-size: 1em;
-        font-weight: bold;
     }
 
     .wind {

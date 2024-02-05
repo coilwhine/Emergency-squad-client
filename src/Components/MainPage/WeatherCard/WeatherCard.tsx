@@ -4,12 +4,14 @@ import weatherServices from "../../../Services/weather-service";
 import { TbLocationFilled } from "react-icons/tb";
 import { FaSun, FaCloudSun, FaCloud, FaCloudSunRain } from "react-icons/fa";
 import { TiArrowUp } from "react-icons/ti";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getWeather } from "../../../App/weatherSlice";
 
 
 function WeatherCard(): JSX.Element {
-    const [weatherData, setWeatherData] = useState<weatherData>(null);
     const [location, setLocation] = useState(null);
+    const weatherData = useSelector((state: any) => state.wheatherData);
+    const dispatch = useDispatch();
 
     function getLocation() {
 
@@ -44,17 +46,20 @@ function WeatherCard(): JSX.Element {
     }
 
     useEffect(() => {
-        getLocation();
+        if (!weatherData) {
+            getLocation();
+        }
     }, [])
 
     useEffect(() => {
 
-        const fetchWheatherData = async () => {
+        async function fetchWeatherData() {
             const data = await weatherServices.localWeather(location)
-            setWeatherData(data.current);
+            dispatch(getWeather(data.current));
         }
+
         if (location) {
-            fetchWheatherData();
+            fetchWeatherData();
         }
 
     }, [location])
@@ -70,7 +75,7 @@ function WeatherCard(): JSX.Element {
                             <i><TbLocationFilled /></i>
                             <span>כפר סבא</span>
                         </div>
-                        <div className="temperature-wraper">
+                        <div className="data-wraper">
                             <span>&#8451;{weatherData.temperature_2m}</span>
 
                             <span className="wind">
@@ -86,7 +91,7 @@ function WeatherCard(): JSX.Element {
                             <i><TbLocationFilled /></i>
                             <span>--</span>
                         </div>
-                        <div className="temperature-wraper">
+                        <div className="data-wraper">
                             <span>--</span>
 
                             <span className="wind">--</span>
