@@ -9,26 +9,30 @@
     .small-cards-wraper {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         align-items: stretch;
         box-sizing: border-box;
         gap: var(--padding-l);
-        width: 95%;
+        width: 100%;
 
         .data-card {
+            box-sizing: border-box;
             display: grid;
+            align-items: center;
+            justify-content: center;
             grid-template-rows: 1fr 1fr 1fr;
         }
     }
 
     .data-card {
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         box-sizing: border-box;
         gap: var(--padding-s);
         border-radius: var(--radius-m);
-        width: 95%;
+        width: 100%;
         padding: var(--padding-l);
         background-color: var(--color-2);
         box-shadow: var(--shadow-s);
@@ -36,7 +40,7 @@
         & * {
             text-wrap: wrap;
             word-wrap: break-word;
-            max-width: 290px;
+            max-width: 90%;
         }
 
         .heading {

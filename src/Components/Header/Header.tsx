@@ -5,7 +5,7 @@ function Header(): JSX.Element {
         <div className="Header">
             <div
                 className="user-team img"
-                style={{ backgroundImage: 'url("./src/assets/Alfei_Menashe.png")' }}>
+                style={{ backgroundImage: 'url("./src/assets/app-logo.png")' }}>
             </div>
             <h1 className="heading">כיתת כוננות</h1>
             <div

@@ -1,9 +1,14 @@
 .LayOut {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     min-height: 100vh;
 
     main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 15px;
     }
 }
