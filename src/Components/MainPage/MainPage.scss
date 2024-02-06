@@ -42,6 +42,10 @@
             max-width: 90%;
         }
 
+        i {
+            width: 20px;
+        }
+
         .heading {
             text-align: center;
         }
@@ -49,11 +53,11 @@
 
     .data-wraper {
         display: flex;
-        align-items: center;
         justify-content: center;
         gap: var(--padding-l);
         font-size: 1em;
         font-weight: bold;
+        width: 100%;
     }
 
     .data-div {

@@ -1,29 +1,25 @@
 .NextBriefingCard {
 
     .data-wraper {
-        display: grid;
-        grid-template-areas:
-            "date date time time btn btn"
-            "location location location location btn btn";
         justify-content: space-between;
-        width: 100%;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+
+        .all-data-wraper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: var(--padding-s);
+
+            .date-time-wraper {
+                display: flex;
+                gap: var(--padding-l);
+            }
+        }
+
+
 
         .data-div {
             justify-content: start;
-        }
-
-        .date {
-            grid-area: date;
-        }
-
-        .time {
-            grid-area: time;
-        }
-
-        .location {
-            grid-area: location;
         }
 
         .btn {
@@ -31,14 +27,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 30px;
+            height: 35px;
             padding: var(--padding-s);
             background-color: var(--color-4);
             color: var(--dark-text-color);
-            font-weight: bold;
             border-radius: var(--radius-s);
             box-shadow: var(--shadow-m);
             font-size: 1.5em;
+            width: 50px;
 
             &:active {
                 box-shadow: var(--shadow-s);

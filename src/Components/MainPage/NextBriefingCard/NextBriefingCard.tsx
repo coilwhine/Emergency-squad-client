@@ -7,18 +7,21 @@ function NextBriefingCard(): JSX.Element {
             <h2 className="heading">תדריך הבא</h2>
 
             <div className="data-wraper">
-                <div className="data-div date">
-                    <i><TbCalendarFilled /></i>
-                    <span>24/02/24</span>
-                </div>
-                <div className="data-div time">
-                    <i><TbClockFilled /></i>
-                    <span>12:00</span>
-                </div>
-
-                <div className="data-div location">
-                    <i><TbMapPinFilled /></i>
-                    <span id="briefing-location-span">חניון בית העלמין הישן </span>
+                <div className="all-data-wraper">
+                    <div className="date-time-wraper">
+                        <div className="data-div date">
+                            <i><TbCalendarFilled /></i>
+                            <span>24/02/24</span>
+                        </div>
+                        <div className="data-div time">
+                            <i><TbClockFilled /></i>
+                            <span>12:00</span>
+                        </div>
+                    </div>
+                    <div className="data-div location">
+                        <i><TbMapPinFilled /></i>
+                        <span id="briefing-location-span">חניון בית העלמין הישן </span>
+                    </div>
                 </div>
                 <a className="data-div btn" href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR
                 VERSION:2.0
