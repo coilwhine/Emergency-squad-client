@@ -80,7 +80,8 @@ function WeatherCard(): JSX.Element {
 
                             <span className="wind">
                                 <i style={{ transform: `rotate(${weatherData.wind_direction_10m}deg)` }}><TiArrowUp /></i>
-                                {weatherData.wind_speed_10m}</span>
+                                {weatherData.wind_speed_10m}
+                            </span>
                         </div>
                     </>
                 )
