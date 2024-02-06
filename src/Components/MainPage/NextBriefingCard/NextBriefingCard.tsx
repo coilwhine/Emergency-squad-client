@@ -20,10 +20,11 @@ function NextBriefingCard(): JSX.Element {
                     </div>
                     <div className="data-div location">
                         <i><TbMapPinFilled /></i>
-                        <span id="briefing-location-span">חניון בית העלמין הישן </span>
+                        <span id="briefing-location-span">  שדג שדג שדג שדחניון בית העלמין הישן ניסיון ניסיון ניסיון ניסיון </span>
                     </div>
                 </div>
-                <a className="data-div btn" href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR
+                <div className="data-div btn-wraper">
+                    <a className="btn" href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR
                 VERSION:2.0
                 BEGIN:VEVENT
                 SUMMARY:Meeting with John
@@ -33,7 +34,8 @@ function NextBriefingCard(): JSX.Element {
                 DESCRIPTION:Discuss project updates.
                 END:VEVENT
                 END:VCALENDAR"
-                    download="event.ics"><TbCalendarDown /></a>
+                        download="event.ics"><TbCalendarDown /></a>
+                </div>
             </div>
         </div>
     );
