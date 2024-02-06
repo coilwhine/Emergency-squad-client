@@ -8,7 +8,6 @@ import { login } from "../../App/authTokenSlice";
 
 
 function LoginPage(): JSX.Element {
-    const userDataString = window.localStorage.getItem('squadUserData');
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
