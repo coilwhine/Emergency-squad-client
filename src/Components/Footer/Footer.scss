@@ -12,6 +12,7 @@
     box-shadow: var(--shadow-m-top);
     border-radius: var(--radius-m) var(--radius-m) 0 0;
     width: 100%;
+    z-index: 9999;
 
     nav {
         display: flex;

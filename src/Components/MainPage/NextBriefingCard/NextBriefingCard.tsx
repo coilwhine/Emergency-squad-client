@@ -20,7 +20,7 @@ function NextBriefingCard(): JSX.Element {
                     </div>
                     <div className="data-div location">
                         <i><TbMapPinFilled /></i>
-                        <span id="briefing-location-span">  שדג שדג שדג שדחניון בית העלמין הישן ניסיון ניסיון ניסיון ניסיון </span>
+                        <span id="briefing-location-span">במגרש הישן (כניסה א׳)</span>
                     </div>
                 </div>
                 <div className="data-div btn-wraper">

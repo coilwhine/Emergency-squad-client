@@ -10,6 +10,7 @@
     color: var(--light-text-color);
     box-shadow: var(--shadow-m);
     width: 100%;
+    z-index: 9999;
 
     .img {
         width: 50px;
