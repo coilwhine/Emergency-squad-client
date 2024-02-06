@@ -5,13 +5,21 @@ import { GoHomeFill } from "react-icons/go";
 
 
 function Footer(): JSX.Element {
+
+    function scrollToTheTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     return (
         <div className="Footer">
             <nav>
-                <NavLink to="/"><GoHomeFill /></NavLink >
-                <NavLink to="/1"><TbMapPinFilled /></NavLink >
-                <NavLink to="/2"><TbMailFilled /></NavLink >
-                <NavLink to="/3"><TbArticleFilledFilled /></NavLink >
+                <NavLink to="/" onClick={() => scrollToTheTop()}><GoHomeFill /></NavLink >
+                <NavLink to="/1" onClick={() => scrollToTheTop()}><TbMapPinFilled /></NavLink >
+                <NavLink to="/2" onClick={() => scrollToTheTop()}><TbMailFilled /></NavLink >
+                <NavLink to="/3" onClick={() => scrollToTheTop()}><TbArticleFilledFilled /></NavLink >
             </nav>
             <span className="copyright">
                 &#169; האפליקציה פותחה בהתנדבות ע״י <em>דניאל חן</em>
