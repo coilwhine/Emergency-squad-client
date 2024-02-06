@@ -3,11 +3,29 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, O
 import LayOut from './Components/LayOut/LayOut';
 import MainPage from './Components/MainPage/MainPage';
 import LoginPage from './Components/LoginPage/LoginPage';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { UserModel } from './Models/auth-models';
+import { aouthentication } from './Utils/aouthentication';
+import { login, logout } from './App/authTokenSlice';
+import { useEffect } from 'react';
 
 function App() {
   const userData = useSelector((state: { authData: UserModel }) => state.authData);
+  const dispatch = useDispatch();
+  let userDataString = localStorage.getItem("squadUserData");
+
+  useEffect(() => {
+    if (userDataString) {
+      aouthentication(userDataString).then((res: boolean) => {
+        if (res) {
+          const userDataParsed = JSON.parse(userDataString);
+          dispatch(login(userDataParsed));
+        } else {
+          dispatch(logout());
+        }
+      })
+    }
+  }, [])
 
   const router = createBrowserRouter(
     createRoutesFromElements(

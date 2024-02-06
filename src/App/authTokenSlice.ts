@@ -1,28 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserModel } from "../Models/auth-models";
 
-const userDataString = window.localStorage.getItem('squadUserData');
 let initialState = null;
-
-if (userDataString) {
-    try {
-        const userData = JSON.parse(userDataString);
-
-        // enter authentication function
-
-        initialState = {
-            googleId: userData.googleId,
-            firstName: userData.firstName,
-            lastName: userData.lastName,
-            email: userData.email,
-            image: userData.image,
-            accessToken: userData.accessToken
-        };
-
-    } catch (error) {
-        window.localStorage.removeItem('squadUserData');
-    }
-}
 
 export const authTokenSlice = createSlice({
     name: 'authData',
@@ -40,7 +19,7 @@ export const authTokenSlice = createSlice({
             }
 
             window.localStorage.setItem("squadUserData", JSON.stringify(action.payload));
-            return state
+            return state;
         },
 
         logout: (state) => {
