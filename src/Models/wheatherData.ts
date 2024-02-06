@@ -1,4 +1,4 @@
-type weatherData = {
+type WeatherData = {
     time: Date,
     interval: number,
     temperature_2m: number,

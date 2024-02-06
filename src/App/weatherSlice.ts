@@ -6,7 +6,7 @@ export const weatherSlice = createSlice({
     name: 'weatherData',
     initialState,
     reducers: {
-        getWeather: (state, action: PayloadAction<any>) => {
+        getWeather: (state, action: PayloadAction<WeatherData>) => {
             state = action.payload;
             return state;
         }

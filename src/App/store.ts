@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import weatherReducer from "./weatherSlice";
+import authReducer from "./authTokenSlice";
 
 export default configureStore({
     reducer: {
-        wheatherData: weatherReducer
+        authToken: authReducer,
+        weatherData: weatherReducer
     }
 });

@@ -10,7 +10,7 @@ import { getWeather } from "../../../App/weatherSlice";
 
 function WeatherCard(): JSX.Element {
     const [location, setLocation] = useState(null);
-    const weatherData = useSelector((state: any) => state.wheatherData);
+    const weatherData = useSelector((state: { weatherData: WeatherData }) => state.weatherData);
     const dispatch = useDispatch();
 
     function getLocation() {
