@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./LoginPage.scss";
 import { FaGoogle } from "react-icons/fa";
+import Header from "../Header/Header";
 
 
 function LoginPage(): JSX.Element {
@@ -13,9 +14,32 @@ function LoginPage(): JSX.Element {
         const response = await fetch("http://localhost:3001/oauth",
             { method: "post" });
         const data = await response.json();
-
         googleNavigate(data.url);
     }
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const userDataString = urlParams.get('userData');
+        const userAccessString = urlParams.get('accessToken');
+
+        const userData = JSON.parse(decodeURIComponent(userDataString));
+        const userAccess = JSON.parse(decodeURIComponent(userAccessString));
+
+        if (userData) {
+            const user = {
+                googleId: userData.sub,
+                firstName: userData.given_name,
+                lastName: userData.family_name,
+                email: userData.email,
+                image: userData.picture,
+                accessToken: userAccess
+            };
+
+            localStorage.setItem("squadUserData", JSON.stringify(user));
+        }
+
+    }, [])
 
     const [btnClr, setBtnClr] = useState<string>("var(--google-green)");
 
@@ -46,18 +70,19 @@ function LoginPage(): JSX.Element {
 
     return (
         <div className="LoginPage">
+            <Header />
             <div className="all-content-card">
                 <h1>כיתת כוננות</h1>
                 <div className="action-wraper">
                     <div className="text">
                         <span>כדי להשתמש באפליקציה הנך נדרש להתחבר למשתמש </span>
                         <span className="google-word">
-                            <span className="google-blue">G</span>
-                            <span className="google-red">O</span>
-                            <span className="google-yellow">O</span>
-                            <span className="google-blue">G</span>
-                            <span className="google-green">L</span>
-                            <span className="google-red">E</span>
+                            <span className="google-letter google-blue">G</span>
+                            <span className="google-letter google-red">O</span>
+                            <span className="google-letter google-yellow">O</span>
+                            <span className="google-letter google-blue">G</span>
+                            <span className="google-letter google-green">L</span>
+                            <span className="google-letter google-red">E</span>
                         </span>
                     </div>
                     <button

@@ -1,16 +1,10 @@
-export type TokenModel = {
-    sub: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    image: string;
-}
-
 export type UserModel = {
     _id?: number;
+    googleId: string
     firstName: string;
     lastName: string;
     email: string;
-    phone: string;
+    phone?: string;
     image: string;
+    accessToken: string;
 }

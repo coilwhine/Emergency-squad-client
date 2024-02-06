@@ -1,47 +1,54 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TokenModel } from "../Models/auth-models";
-import { jwtDecode } from "jwt-decode";
+import { UserModel } from "../Models/auth-models";
 
-let token = window.localStorage.getItem('squadAuthToken');
+const userDataString = localStorage.getItem('squadUserData');
 let initialState = null;
 
-if (token) {
+if (userDataString) {
     try {
-        let userToken = jwtDecode<TokenModel>(token);
+        const userData = JSON.parse(userDataString);
+
+        // enter authentication function
 
         initialState = {
-            sub: userToken.sub,
-            firstName: userToken.firstName,
-            lastName: userToken.lastName,
-            email: userToken.email,
-            image: userToken.image
+            sub: userData.sub,
+            googleId: userData.googleId,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            image: userData.image,
+            accessToken: userData.accessToken
         };
 
     } catch (error) {
-        window.localStorage.removeItem('squadAuthToken')
+        localStorage.removeItem('squadUserData');
     }
 }
 
 export const authTokenSlice = createSlice({
-    name: 'authToken',
+    name: 'authData',
     initialState,
     reducers: {
-        login: (state, action: PayloadAction<string>) => {
-            const userNewToken = jwtDecode<TokenModel>(action.payload);
+        login: (state, action: PayloadAction<UserModel>) => {
+
             state = {
-                sub: userNewToken.sub,
-                firstName: userNewToken.firstName,
-                lastName: userNewToken.lastName,
-                email: userNewToken.email,
-                image: userNewToken.image
-            } as TokenModel
-            window.localStorage.setItem('squadAuthToken', action.payload)
+                sub: action.payload._id,
+                googleId: action.payload.googleId,
+                firstName: action.payload.firstName,
+                lastName: action.payload.lastName,
+                email: action.payload.email,
+                image: action.payload.image,
+                accessToken: action.payload.accessToken
+            }
+
+            localStorage.setItem("squadUserData", JSON.stringify(action.payload));
             return state
         },
 
-        logout: () => {
-            window.localStorage.removeItem('squadAuthToken')
-            return null
+        logout: (state) => {
+            window.localStorage.removeItem('squadUserData');
+            state = null;
+            return state;
         }
     }
 })

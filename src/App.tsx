@@ -4,15 +4,14 @@ import LayOut from './Components/LayOut/LayOut';
 import MainPage from './Components/MainPage/MainPage';
 import LoginPage from './Components/LoginPage/LoginPage';
 import { useSelector } from 'react-redux';
-import { TokenModel } from './Models/auth-models';
+import { UserModel } from './Models/auth-models';
 
 function App() {
-  const user = useSelector((state: { authToken: TokenModel }) => state.authToken);
-  // const user = true
+  const userData = useSelector((state: { authData: UserModel }) => state.authData);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={user ? <LayOut /> : <LoginPage />}>
+      <Route path='/' element={userData ? <LayOut /> : <LoginPage />}>
         <Route index element={<MainPage />} />
         <Route path="1" element={<div>1</div>} />
         <Route path="2" element={<div>2</div>} />

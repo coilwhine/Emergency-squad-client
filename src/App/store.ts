@@ -4,7 +4,7 @@ import authReducer from "./authTokenSlice";
 
 export default configureStore({
     reducer: {
-        authToken: authReducer,
+        authData: authReducer,
         weatherData: weatherReducer
     }
 });
