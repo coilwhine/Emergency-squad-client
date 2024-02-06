@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserModel } from "../Models/auth-models";
 
-const userDataString = localStorage.getItem('squadUserData');
+const userDataString = window.localStorage.getItem('squadUserData');
 let initialState = null;
 
 if (userDataString) {
@@ -11,7 +11,6 @@ if (userDataString) {
         // enter authentication function
 
         initialState = {
-            sub: userData.sub,
             googleId: userData.googleId,
             firstName: userData.firstName,
             lastName: userData.lastName,
@@ -21,7 +20,7 @@ if (userDataString) {
         };
 
     } catch (error) {
-        localStorage.removeItem('squadUserData');
+        window.localStorage.removeItem('squadUserData');
     }
 }
 
@@ -32,7 +31,6 @@ export const authTokenSlice = createSlice({
         login: (state, action: PayloadAction<UserModel>) => {
 
             state = {
-                sub: action.payload._id,
                 googleId: action.payload.googleId,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
@@ -41,7 +39,7 @@ export const authTokenSlice = createSlice({
                 accessToken: action.payload.accessToken
             }
 
-            localStorage.setItem("squadUserData", JSON.stringify(action.payload));
+            window.localStorage.setItem("squadUserData", JSON.stringify(action.payload));
             return state
         },
 

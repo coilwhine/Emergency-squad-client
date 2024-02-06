@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import "./LoginPage.scss";
 import { FaGoogle } from "react-icons/fa";
 import Header from "../Header/Header";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { login } from "../../App/authTokenSlice";
 
 
 function LoginPage(): JSX.Element {
+    const userDataString = window.localStorage.getItem('squadUserData');
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function googleNavigate(url: string) {
         window.location.href = url;
@@ -37,7 +43,10 @@ function LoginPage(): JSX.Element {
             };
 
             localStorage.setItem("squadUserData", JSON.stringify(user));
+            dispatch(login(user));
         }
+
+        navigate('/');
 
     }, [])
 
