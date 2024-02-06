@@ -1,3 +1,73 @@
 .LoginPage {
-	
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-l);
+    width: 100%;
+    min-height: 95vh;
+
+    .all-content-card {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--padding-l);
+        width: 85%;
+        padding: var(--padding-xl);
+        background-color: #fff;
+        border-radius: var(--radius-l);
+        box-shadow: var(--shadow-m);
+
+        .action-wraper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: var(--padding-l);
+
+            .google-word {
+                font-weight: bold;
+
+                .google-blue {
+                    color: var(--google-blue);
+                }
+
+                .google-green {
+                    color: var(--google-green);
+                }
+
+                .google-yellow {
+                    color: var(--google-yellow);
+                }
+
+                .google-red {
+                    color: var(--google-red);
+                }
+            }
+
+            .google-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                background-color: transparent;
+                box-shadow: var(--shadow-m);
+                border-radius: 100%;
+                width: 100px;
+                height: 100px;
+                padding: 10px 20px;
+                font-size: 4em;
+                color: var(--light-text-color);
+                transition: background-color 2000ms, box-shadow 100ms;
+
+                &:active {
+                    box-shadow: var(--shadow-s);
+                }
+            }
+        }
+    }
 }

@@ -10,7 +10,7 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        padding: 15px;
+        padding: var(--padding-l);
         width: 100%;
         flex: 1;
     }
