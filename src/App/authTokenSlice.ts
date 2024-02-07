@@ -28,7 +28,7 @@ export const authTokenSlice = createSlice({
             return state;
         }
     }
-})
+});
 
 export const { login, logout } = authTokenSlice.actions
 

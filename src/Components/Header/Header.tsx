@@ -16,7 +16,7 @@ function Header(): JSX.Element {
             <h1 className="heading">כיתת כוננות</h1>
             {user && <div
                 className="user-img img"
-                style={{ backgroundImage: `url(${user.image})` }}
+                style={{ backgroundImage: `url(${user.image ? user.image : "./src/assets/default-profile-image.png"})` }}
                 onClick={() => dispatch(logout())}
             >
             </div>}

@@ -15,7 +15,7 @@ function LoginPage(): JSX.Element {
         window.location.href = url;
     }
 
-    async function testbtn() {
+    async function googleBtn() {
         const response = await fetch("http://localhost:3001/oauth",
             { method: "post" });
         const data = await response.json();
@@ -28,21 +28,22 @@ function LoginPage(): JSX.Element {
         const userDataString = urlParams.get('userData');
         const userAccessString = urlParams.get('accessToken');
 
-        const userData = JSON.parse(decodeURIComponent(userDataString));
-        const userAccess = JSON.parse(decodeURIComponent(userAccessString));
+        const userDataByGoogle = JSON.parse(decodeURIComponent(userDataString));
+        const userAccessByGoogle = JSON.parse(decodeURIComponent(userAccessString));
 
-        if (userData) {
-            const user = {
-                googleId: userData.sub,
-                firstName: userData.given_name,
-                lastName: userData.family_name,
-                email: userData.email,
-                image: userData.picture,
-                accessToken: userAccess
+        if (userDataByGoogle) {
+            const userData = {
+                googleId: userDataByGoogle.sub,
+                firstName: userDataByGoogle.given_name,
+                lastName: userDataByGoogle.family_name,
+                email: userDataByGoogle.email,
+                image: userDataByGoogle.picture,
+                accessToken: userAccessByGoogle
             };
 
-            localStorage.setItem("squadUserData", JSON.stringify(user));
-            dispatch(login(user));
+            localStorage.setItem("squadUserData", JSON.stringify(userData));
+            dispatch(login(userData));
+
         }
 
         navigate('/');
@@ -96,7 +97,7 @@ function LoginPage(): JSX.Element {
                     <button
                         style={{ backgroundColor: btnClr }}
                         className="google-btn"
-                        onClick={() => testbtn()}>
+                        onClick={() => googleBtn()}>
                         <FaGoogle />
                     </button>
                 </div >
