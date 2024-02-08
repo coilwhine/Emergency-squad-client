@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { login } from "../../App/authTokenSlice";
+import authServices from "../../Services/auth-services";
 
 
 function LoginPage(): JSX.Element {
@@ -32,15 +33,18 @@ function LoginPage(): JSX.Element {
         const userAccessByGoogle = JSON.parse(decodeURIComponent(userAccessString));
 
         if (userDataByGoogle) {
+
             const userData = {
                 googleId: userDataByGoogle.sub,
                 firstName: userDataByGoogle.given_name,
                 lastName: userDataByGoogle.family_name,
                 email: userDataByGoogle.email,
+                phone: "0000000000",
                 image: userDataByGoogle.picture,
                 accessToken: userAccessByGoogle
             };
 
+            authServices.loginUserToDB(userData);
             localStorage.setItem("squadUserData", JSON.stringify(userData));
             dispatch(login(userData));
 
